@@ -1,6 +1,7 @@
 package examen1_ronalzuniga;
 
-public class ElMachetes extends Persona{
+public class ElMachetes extends Persona {
+
     private int desaparecidos;
 
     public ElMachetes() {
@@ -22,8 +23,7 @@ public class ElMachetes extends Persona{
 
     @Override
     public String toString() {
-        return super.getNombre() + ", "+super.getEdad();
+        return super.toString() + ", Num_Desaparecidos = " + desaparecidos;
     }
-    
-    
+
 }

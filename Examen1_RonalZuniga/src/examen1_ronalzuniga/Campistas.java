@@ -1,6 +1,7 @@
 package examen1_ronalzuniga;
 
-public class Campistas extends Persona{
+public class Campistas extends Persona {
+
     private String tipo;
     private String estado;
 
@@ -36,8 +37,7 @@ public class Campistas extends Persona{
 
     @Override
     public String toString() {
-        return super.getNombre() + ", "+super.getEdad();
+        return super.toString() + ", " + tipo + ", " + estado;
     }
-    
-    
+
 }
