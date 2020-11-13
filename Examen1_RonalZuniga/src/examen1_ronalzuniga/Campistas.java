@@ -30,7 +30,7 @@ public class Campistas extends Persona {
     }
 
     public void setEstado(String estado) {
-        if ("Vivo".equals(tipo) || "Desaparecido".equals(tipo)) {
+        if ("Vivo".equals(estado) || "Desaparecido".equals(estado)) {
             this.estado = estado;
         }
     }
