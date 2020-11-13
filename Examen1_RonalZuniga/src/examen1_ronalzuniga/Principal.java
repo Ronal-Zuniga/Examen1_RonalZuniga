@@ -1030,168 +1030,220 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tpStateChanged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        double damage = Double.valueOf(pct.getText());
-        String type = cbtipo.getSelectedItem().toString();
-        Arma a = new Arma(type, damage);
-        armas.add(a);
-        pct.setText("");
-        cbtipo.setSelectedIndex(0);
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < armas.size(); i++) {
-            modelo.addElement(armas.get(i));
+        if (pct.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            double damage = Double.valueOf(pct.getText());
+            String type = cbtipo.getSelectedItem().toString();
+            if (damage >= 1) {
+                Arma a = new Arma(type, damage);
+                armas.add(a);
+                JOptionPane.showMessageDialog(this, "Arma agregada correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Daño debe ser positivo \n el arma no fue agregada");
+            }
+            pct.setText("");
+            cbtipo.setSelectedIndex(0);
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < armas.size(); i++) {
+                modelo.addElement(armas.get(i));
+            }
+            jcbgun.setModel(modelo);
+            jcbgun1.setModel(modelo);
+            cbgun.setModel(modelo);
+            cbgun1.setModel(modelo);
+            cbarma.setModel(modelo);
+            cbarma1.setModel(modelo);
         }
-        jcbgun.setModel(modelo);
-        jcbgun1.setModel(modelo);
-        cbgun.setModel(modelo);
-        cbgun1.setModel(modelo);
-        cbarma.setModel(modelo);
-        cbarma1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "Arma agregada correctamente");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        String nombre = cnombre.getText();
-        int edad = Integer.valueOf(cedad.getText());
-        String sx = cbsex.getSelectedItem().toString();
-        Arma a = ((Arma) cbgun.getSelectedItem());
-        String t = cbcam.getSelectedItem().toString();
-        String v = cbvida.getSelectedItem().toString();
-        Campistas c = new Campistas(t, v, nombre, edad, sx, a);
-        p.add(c);
-        cnombre.setText("");
-        cedad.setText("");
-        cbsex.setSelectedIndex(0);
-        cbgun.setSelectedIndex(0);
-        cbcam.setSelectedIndex(0);
-        cbvida.setSelectedIndex(0);
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof Campistas) {
-                modelo.addElement(p.get(i));
+        if (cnombre.getText().isEmpty() || cedad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            String nombre = cnombre.getText();
+            int edad = Integer.valueOf(cedad.getText());
+            String sx = cbsex.getSelectedItem().toString();
+            Arma a = ((Arma) cbgun.getSelectedItem());
+            String t = cbcam.getSelectedItem().toString();
+            String v = cbvida.getSelectedItem().toString();
+            if (edad >= 10 && edad <= 60) {
+                Campistas c = new Campistas(t, v, nombre, edad, sx, a);
+                p.add(c);
+                JOptionPane.showMessageDialog(this, "Campista agregado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe tener por lo menos 10 años para ingresar al campamento\n"
+                        + "el Campista no se ha agregado");
             }
+            cnombre.setText("");
+            cedad.setText("");
+            cbsex.setSelectedIndex(0);
+            cbgun.setSelectedIndex(0);
+            cbcam.setSelectedIndex(0);
+            cbvida.setSelectedIndex(0);
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < p.size(); i++) {
+                if (p.get(i) instanceof Campistas) {
+                    modelo.addElement(p.get(i));
+                }
+            }
+            cbcampista.setModel(modelo);
+            cbcampista1.setModel(modelo);
         }
-        cbcampista.setModel(modelo);
-        cbcampista1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "Campista agregado correctamente");
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        String nombre = jnombre.getText();
-        int edad = Integer.valueOf(jedad.getText());
-        String sx = jsex.getSelectedItem().toString();
-        Arma a = ((Arma) jcbgun.getSelectedItem());
-        int des = Integer.valueOf(jdesapear.getText());
-        ElMachetes m = new ElMachetes(des, nombre, edad, sx, a);
-        p.add(m);
-        jnombre.setText("");
-        jedad.setText("");
-        jsex.setSelectedIndex(0);
-        jcbgun.setSelectedIndex(0);
-        jdesapear.setText("");
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof ElMachetes) {
-                modelo.addElement(p.get(i));
+        if (jnombre.getText().isEmpty() || jedad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            String nombre = jnombre.getText();
+            int edad = Integer.valueOf(jedad.getText());
+            String sx = jsex.getSelectedItem().toString();
+            Arma a = ((Arma) jcbgun.getSelectedItem());
+            int des = Integer.valueOf(jdesapear.getText());
+            if (edad >= 10 && des >= 0 && edad <= 60) {
+                ElMachetes m = new ElMachetes(des, nombre, edad, sx, a);
+                p.add(m);
+                JOptionPane.showMessageDialog(this, "YeisonBorjis agregado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Los desaparecidos deben ser mayores o iguales a 0 \n"
+                        + "YeisonBorjis no fue agregado");
             }
+            jnombre.setText("");
+            jedad.setText("");
+            jsex.setSelectedIndex(0);
+            jcbgun.setSelectedIndex(0);
+            jdesapear.setText("");
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < p.size(); i++) {
+                if (p.get(i) instanceof ElMachetes) {
+                    modelo.addElement(p.get(i));
+                }
+            }
+            cbyeison.setModel(modelo);
+            cbyeison1.setModel(modelo);
         }
-        cbyeison.setModel(modelo);
-        cbyeison1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "YeisonBorjis agregado correctamente");
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        Arma a = ((Arma) cbarma.getSelectedItem());
-        double damage = Double.valueOf(pct1.getText());
-        String type = cbtipo1.getSelectedItem().toString();
-        for (int i = 0; i < armas.size(); i++) {
-            if (armas.get(i).equals(a)) {
-                armas.get(i).setDaño(damage);
-                armas.get(i).setTipo(type);
-                i = armas.size();
+        if (pct1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            Arma a = ((Arma) cbarma.getSelectedItem());
+            double damage = Double.valueOf(pct1.getText());
+            String type = cbtipo1.getSelectedItem().toString();
+            if (damage >= 1) {
+                for (int i = 0; i < armas.size(); i++) {
+                    if (armas.get(i).equals(a)) {
+                        armas.get(i).setDaño(damage);
+                        armas.get(i).setTipo(type);
+                        i = armas.size();
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "Arma modificada correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Daño debe ser positivo \n el arma no fue modificada");
             }
+            pct1.setText("");
+            cbtipo1.setSelectedIndex(0);
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < armas.size(); i++) {
+                modelo.addElement(armas.get(i));
+            }
+            cbgun.setModel(modelo);
+            cbgun1.setModel(modelo);
+            cbarma.setModel(modelo);
+            cbarma1.setModel(modelo);
+            jcbgun.setModel(modelo);
+            jcbgun1.setModel(modelo);
         }
-        pct1.setText("");
-        cbtipo1.setSelectedIndex(0);
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < armas.size(); i++) {
-            modelo.addElement(armas.get(i));
-        }
-        cbgun.setModel(modelo);
-        cbgun1.setModel(modelo);
-        cbarma.setModel(modelo);
-        cbarma1.setModel(modelo);
-        jcbgun.setModel(modelo);
-        jcbgun1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "Arma modificada correctamente");
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        Campistas cm = ((Campistas) cbcampista.getSelectedItem());
-        String nombre = cnombre1.getText();
-        int edad = Integer.valueOf(cedad1.getText());
-        String sx = cbsex1.getSelectedItem().toString();
-        Arma a = ((Arma) cbgun1.getSelectedItem());
-        String t = cbcam1.getSelectedItem().toString();
-        String v = cbvida1.getSelectedItem().toString();
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof Campistas && p.get(i).equals(cm)) {
-                p.get(i).setNombre(nombre);
-                p.get(i).setEdad(edad);
-                p.get(i).setSexo(sx);
-                p.get(i).setArma(a);
-                ((Campistas) p.get(i)).setTipo(t);
-                ((Campistas) p.get(i)).setEstado(v);
-                i = p.size();
+        if (cnombre1.getText().isEmpty() || cedad1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            Campistas cm = ((Campistas) cbcampista.getSelectedItem());
+            String nombre = cnombre1.getText();
+            int edad = Integer.valueOf(cedad1.getText());
+            String sx = cbsex1.getSelectedItem().toString();
+            Arma a = ((Arma) cbgun1.getSelectedItem());
+            String t = cbcam1.getSelectedItem().toString();
+            String v = cbvida1.getSelectedItem().toString();
+            if (edad >= 10 && edad <= 60) {
+                for (int i = 0; i < p.size(); i++) {
+                    if (p.get(i) instanceof Campistas && p.get(i).equals(cm)) {
+                        p.get(i).setNombre(nombre);
+                        p.get(i).setEdad(edad);
+                        p.get(i).setSexo(sx);
+                        p.get(i).setArma(a);
+                        ((Campistas) p.get(i)).setTipo(t);
+                        ((Campistas) p.get(i)).setEstado(v);
+                        i = p.size();
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "Campista modificado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Debe tener por lo menos 10 años para ingresar al campamento\n"
+                        + "el Campista no se ha modificado");
             }
-        }
-        cnombre1.setText("");
-        cedad1.setText("");
-        cbsex1.setSelectedIndex(0);
-        cbgun1.setSelectedIndex(0);
-        cbcam1.setSelectedIndex(0);
-        cbvida1.setSelectedIndex(0);
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof Campistas) {
-                modelo.addElement(p.get(i));
+            cnombre1.setText("");
+            cedad1.setText("");
+            cbsex1.setSelectedIndex(0);
+            cbgun1.setSelectedIndex(0);
+            cbcam1.setSelectedIndex(0);
+            cbvida1.setSelectedIndex(0);
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < p.size(); i++) {
+                if (p.get(i) instanceof Campistas) {
+                    modelo.addElement(p.get(i));
+                }
             }
+            cbcampista.setModel(modelo);
+            cbcampista1.setModel(modelo);
         }
-        cbcampista.setModel(modelo);
-        cbcampista1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "Campista modificado correctamente");
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        ElMachetes m = ((ElMachetes) cbyeison.getSelectedItem());
-        String nombre = jnombre1.getText();
-        int edad = Integer.valueOf(jedad1.getText());
-        String sx = jsex1.getSelectedItem().toString();
-        Arma a = ((Arma) jcbgun1.getSelectedItem());
-        int des = Integer.valueOf(jdesapear1.getText());
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof ElMachetes && p.get(i).equals(m)) {
-                p.get(i).setNombre(nombre);
-                p.get(i).setEdad(edad);
-                p.get(i).setSexo(sx);
-                p.get(i).setArma(a);
-                ((ElMachetes) p.get(i)).setDesaparecidos(des);
-                i = p.size();
+        if (jnombre1.getText().isEmpty() || jedad1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
+        } else {
+            ElMachetes m = ((ElMachetes) cbyeison.getSelectedItem());
+            String nombre = jnombre1.getText();
+            int edad = Integer.valueOf(jedad1.getText());
+            String sx = jsex1.getSelectedItem().toString();
+            Arma a = ((Arma) jcbgun1.getSelectedItem());
+            int des = Integer.valueOf(jdesapear1.getText());
+            if (edad >= 10 && des >= 0 && edad <= 60) {
+                for (int i = 0; i < p.size(); i++) {
+                    if (p.get(i) instanceof ElMachetes && p.get(i).equals(m)) {
+                        p.get(i).setNombre(nombre);
+                        p.get(i).setEdad(edad);
+                        p.get(i).setSexo(sx);
+                        p.get(i).setArma(a);
+                        ((ElMachetes) p.get(i)).setDesaparecidos(des);
+                        i = p.size();
+                    }
+                }
+                JOptionPane.showMessageDialog(this, "YeisonBorjis modificado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Los desaparecidos deben ser mayores o iguales a 0 \n"
+                        + "YeisonBorjis no fue modificadoagregado");
             }
-        }
-        jnombre1.setText("");
-        jedad1.setText("");
-        jsex1.setSelectedIndex(0);
-        jcbgun1.setSelectedIndex(0);
-        jdesapear1.setText("");
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        for (int i = 0; i < p.size(); i++) {
-            if (p.get(i) instanceof ElMachetes) {
-                modelo.addElement(p.get(i));
+            jnombre1.setText("");
+            jedad1.setText("");
+            jsex1.setSelectedIndex(0);
+            jcbgun1.setSelectedIndex(0);
+            jdesapear1.setText("");
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (int i = 0; i < p.size(); i++) {
+                if (p.get(i) instanceof ElMachetes) {
+                    modelo.addElement(p.get(i));
+                }
             }
+            cbyeison.setModel(modelo);
+            cbyeison1.setModel(modelo);
         }
-        cbyeison.setModel(modelo);
-        cbyeison1.setModel(modelo);
-        JOptionPane.showMessageDialog(this, "YeisonBorjis modificado correctamente");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
