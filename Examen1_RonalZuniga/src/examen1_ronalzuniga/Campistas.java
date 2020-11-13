@@ -36,7 +36,7 @@ public class Campistas extends Persona{
 
     @Override
     public String toString() {
-        return "Campistas{" + "tipo=" + tipo + ", estado=" + estado + '}';
+        return super.getNombre() + ", "+super.getEdad();
     }
     
     

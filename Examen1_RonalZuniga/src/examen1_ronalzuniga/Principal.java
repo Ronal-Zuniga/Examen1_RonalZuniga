@@ -5,6 +5,10 @@
  */
 package examen1_ronalzuniga;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Josué Zuniga
@@ -27,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tp = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -66,15 +70,58 @@ public class Principal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jdesapear = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        cbtipo1 = new javax.swing.JComboBox<>();
+        pct1 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        cbarma = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        cnombre1 = new javax.swing.JTextField();
+        cedad1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        cbsex1 = new javax.swing.JComboBox<>();
+        cbgun1 = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        cbcam1 = new javax.swing.JComboBox<>();
+        cbvida1 = new javax.swing.JComboBox<>();
+        jLabel28 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        cbcampista = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jnombre1 = new javax.swing.JTextField();
+        jedad1 = new javax.swing.JTextField();
+        jsex1 = new javax.swing.JComboBox<>();
+        jcbgun1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        cbyeison = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        jdesapear1 = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setBackground(new java.awt.Color(153, 0, 0));
-        jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tp.setBackground(new java.awt.Color(153, 0, 0));
+        tp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tp.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tpStateChanged(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -99,7 +146,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(82, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Inicio", jPanel1);
+        tp.addTab("Inicio", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -122,6 +169,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setText("Guardar Arma");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,7 +216,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(110, 110, 110))
         );
 
-        jTabbedPane1.addTab("Agregar Arma", jPanel2);
+        tp.addTab("Agregar Arma", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -213,6 +265,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton2.setText("Guardar Campista");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -275,7 +332,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
         );
 
-        jTabbedPane1.addTab("Agregar Campista", jPanel3);
+        tp.addTab("Agregar Campista", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -310,6 +367,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton3.setText("Guardar Yeison");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -385,52 +447,356 @@ public class Principal extends javax.swing.JFrame {
                     .addContainerGap(312, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("Agregar Jason", jPanel4);
+        tp.addTab("Agregar Jason", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Modificar Arma");
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Seleccione el tipo de arma");
+
+        cbtipo1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        cbtipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hacha", "Pistola", "Bate", "Pala", "Sierra Eléctrica", "Puños" }));
+
+        pct1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Ingrese el % de daño");
+
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton4.setText("Guardar Arma");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Seleccione el arma a modificar");
+
+        cbarma.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1262, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(509, 509, 509)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(522, 522, 522)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel21))
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbtipo1, 0, 244, Short.MAX_VALUE)
+                            .addComponent(pct1)
+                            .addComponent(cbarma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(cbarma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(cbtipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(pct1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95)
+                .addComponent(jButton4)
+                .addGap(110, 110, 110))
         );
 
-        jTabbedPane1.addTab("Modificar Arma", jPanel5);
+        tp.addTab("Modificar Arma", jPanel5);
 
         jPanel7.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Nombre: ");
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Modificar Campista");
+
+        cnombre1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        cedad1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Edad: ");
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Sexo:");
+
+        cbsex1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        cbsex1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+
+        cbgun1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Arma");
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Tipo de Campista");
+
+        cbcam1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        cbcam1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supervisor", "Campista" }));
+
+        cbvida1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        cbvida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vivo", "Desaparecido" }));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Estado de vida");
+
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton5.setText("Guardar Campista");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Seleccione el Campista a modificar");
+
+        cbcampista.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1262, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(500, 500, 500)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(99, 99, 99)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cnombre1)
+                            .addComponent(cedad1)
+                            .addComponent(cbsex1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbgun1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbvida1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbcam1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbcampista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(486, 486, 486))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel23)
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(cnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbcampista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(cbsex1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(cbgun1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(cbcam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(cbvida1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(53, 53, 53))
         );
 
-        jTabbedPane1.addTab("Modificar Campista", jPanel7);
+        tp.addTab("Modificar Campista", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Modificar YeisonBorjis");
+
+        jnombre1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jedad1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jsex1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jsex1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
+
+        jcbgun1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton6.setText("Guardar Yeison");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Arma");
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Sexo:");
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Edad: ");
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Nombre: ");
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Seleccione el Yeison a modificar");
+
+        cbyeison.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Desaparecidos: ");
+
+        jdesapear1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1262, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(500, 500, 500)
+                        .addComponent(jLabel30))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel31))
+                        .addGap(99, 99, 99)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdesapear1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jnombre1)
+                                .addComponent(jedad1)
+                                .addComponent(jsex1, 0, 342, Short.MAX_VALUE)
+                                .addComponent(jcbgun1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbyeison, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(486, 486, 486))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel30)
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36)
+                            .addComponent(jnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jedad1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel37)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbyeison, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(jsex1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jcbgun1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jdesapear1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(53, 53, 53))
         );
 
-        jTabbedPane1.addTab("Modificar Jason", jPanel8);
+        tp.addTab("Modificar Jason", jPanel8);
 
         jPanel9.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -445,7 +811,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 672, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Eliminar", jPanel9);
+        tp.addTab("Eliminar", jPanel9);
 
         jPanel10.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -460,21 +826,178 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 672, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Estadísticas", jPanel10);
+        tp.addTab("Estadísticas", jPanel10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1267, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(tp, javax.swing.GroupLayout.PREFERRED_SIZE, 1267, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tp, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tpStateChanged
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        double damage = Double.valueOf(pct.getText());
+        String type = cbtipo.getSelectedItem().toString();
+        Arma a = new Arma(type, damage);
+        armas.add(a);
+        pct.setText("");
+        cbtipo.setSelectedIndex(0);
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < armas.size(); i++) {
+            modelo.addElement(armas.get(i));
+        }
+        cbgun.setModel(modelo);
+        cbarma.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Arma agregada correctamente");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String nombre = cnombre.getText();
+        int edad = Integer.valueOf(cedad.getText());
+        String sx = cbsex.getSelectedItem().toString();
+        Arma a = ((Arma)cbgun.getSelectedItem());
+        String t = cbcam.getSelectedItem().toString();
+        String v = cbvida.getSelectedItem().toString();
+        Campistas c = new Campistas(t, v, nombre, edad, sx, a);
+        p.add(c);
+        cnombre.setText("");
+        cedad.setText("");
+        cbsex.setSelectedIndex(0);
+        cbgun.setSelectedIndex(0);
+        cbcam.setSelectedIndex(0);
+        cbvida.setSelectedIndex(0);
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof Campistas) {
+                modelo.addElement(p.get(i));
+            }
+        }
+        cbcampista.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Campista agregado correctamente");
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String nombre = jnombre.getText();
+        int edad = Integer.valueOf(jedad.getText());
+        String sx = jsex.getSelectedItem().toString();
+        Arma a = ((Arma)jcbgun.getSelectedItem());
+        int des = Integer.valueOf(jdesapear.getText());
+        ElMachetes m = new ElMachetes(des, nombre, edad, sx, a);
+        p.add(m);
+        jnombre.setText("");
+        jedad.setText("");
+        jsex.setSelectedIndex(0);
+        jcbgun.setSelectedIndex(0);
+        jdesapear.setText("");
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof ElMachetes) {
+                modelo.addElement(p.get(i));
+            }
+        }
+        cbyeison.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "YeisonBorjis agregado correctamente");
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Arma a = ((Arma)cbarma.getSelectedItem());
+        double damage = Double.valueOf(pct1.getText());
+        String type = cbtipo1.getSelectedItem().toString();
+        for (int i = 0; i < armas.size(); i++) {
+            if (armas.get(i).equals(a)) {
+                armas.get(i).setDaño(damage);
+                armas.get(i).setTipo(type);
+                i=armas.size();
+            }
+        }
+        pct1.setText("");
+        cbtipo1.setSelectedIndex(0);
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < armas.size(); i++) {
+            modelo.addElement(armas.get(i));
+        }
+        cbgun.setModel(modelo);
+        cbarma.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Arma modificada correctamente");
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        Campistas cm = ((Campistas)cbcampista.getSelectedItem());
+        String nombre = cnombre1.getText();
+        int edad = Integer.valueOf(cedad1.getText());
+        String sx = cbsex1.getSelectedItem().toString();
+        Arma a = ((Arma)cbgun1.getSelectedItem());
+        String t = cbcam1.getSelectedItem().toString();
+        String v = cbvida1.getSelectedItem().toString();
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof Campistas && p.get(i).equals(cm)) {
+                p.get(i).setNombre(nombre);
+                p.get(i).setEdad(edad);
+                p.get(i).setSexo(sx);
+                p.get(i).setArma(a);
+                ((Campistas)p.get(i)).setTipo(t);
+                ((Campistas)p.get(i)).setEstado(v);
+                i = p.size();
+            }
+        }
+        cnombre1.setText("");
+        cedad1.setText("");
+        cbsex1.setSelectedIndex(0);
+        cbgun1.setSelectedIndex(0);
+        cbcam1.setSelectedIndex(0);
+        cbvida1.setSelectedIndex(0);
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof Campistas) {
+                modelo.addElement(p.get(i));
+            }
+        }
+        cbcampista.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "Campista modificado correctamente");
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        ElMachetes m = ((ElMachetes)cbyeison.getSelectedItem());
+        String nombre = jnombre1.getText();
+        int edad = Integer.valueOf(jedad1.getText());
+        String sx = jsex1.getSelectedItem().toString();
+        Arma a = ((Arma)jcbgun1.getSelectedItem());
+        int des = Integer.valueOf(jdesapear1.getText());
+         for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof ElMachetes && p.get(i).equals(m)) {
+                p.get(i).setNombre(nombre);
+                p.get(i).setEdad(edad);
+                p.get(i).setSexo(sx);
+                p.get(i).setArma(a);
+                ((ElMachetes)p.get(i)).setDesaparecidos(des);
+                i = p.size();
+            }
+        }
+        jnombre1.setText("");
+        jedad1.setText("");
+        jsex1.setSelectedIndex(0);
+        jcbgun1.setSelectedIndex(0);
+        jdesapear1.setText("");
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i) instanceof ElMachetes) {
+                modelo.addElement(p.get(i));
+            }
+        }
+        cbyeison.setModel(modelo);
+        JOptionPane.showMessageDialog(this, "YeisonBorjis modificado correctamente");
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -512,16 +1035,29 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbarma;
     private javax.swing.JComboBox<String> cbcam;
+    private javax.swing.JComboBox<String> cbcam1;
+    private javax.swing.JComboBox<String> cbcampista;
     private javax.swing.JComboBox<String> cbgun;
+    private javax.swing.JComboBox<String> cbgun1;
     private javax.swing.JComboBox<String> cbsex;
+    private javax.swing.JComboBox<String> cbsex1;
     private javax.swing.JComboBox<String> cbtipo;
+    private javax.swing.JComboBox<String> cbtipo1;
     private javax.swing.JComboBox<String> cbvida;
+    private javax.swing.JComboBox<String> cbvida1;
+    private javax.swing.JComboBox<String> cbyeison;
     private javax.swing.JTextField cedad;
+    private javax.swing.JTextField cedad1;
     private javax.swing.JTextField cnombre;
+    private javax.swing.JTextField cnombre1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -531,8 +1067,27 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -548,12 +1103,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox<String> jcbgun;
+    private javax.swing.JComboBox<String> jcbgun1;
     private javax.swing.JTextField jdesapear;
+    private javax.swing.JTextField jdesapear1;
     private javax.swing.JTextField jedad;
+    private javax.swing.JTextField jedad1;
     private javax.swing.JTextField jnombre;
+    private javax.swing.JTextField jnombre1;
     private javax.swing.JComboBox<String> jsex;
+    private javax.swing.JComboBox<String> jsex1;
     private javax.swing.JTextField pct;
+    private javax.swing.JTextField pct1;
+    private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
+    private ArrayList<Persona> p = new ArrayList();
+    private ArrayList<Arma> armas = new ArrayList();
 }

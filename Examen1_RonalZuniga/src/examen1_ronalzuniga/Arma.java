@@ -34,7 +34,7 @@ public class Arma {
 
     @Override
     public String toString() {
-        return "Arma{" + "tipo=" + tipo + ", da\u00f1o=" + daño + '}';
+        return "tipo = " + tipo + ", damage = " + daño;
     }
 
 }

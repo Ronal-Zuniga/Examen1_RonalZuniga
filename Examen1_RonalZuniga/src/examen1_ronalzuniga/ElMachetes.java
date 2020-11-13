@@ -22,7 +22,7 @@ public class ElMachetes extends Persona{
 
     @Override
     public String toString() {
-        return "ElMachetes{" + "desaparecidos=" + desaparecidos + '}';
+        return super.getNombre() + ", "+super.getEdad();
     }
     
     
